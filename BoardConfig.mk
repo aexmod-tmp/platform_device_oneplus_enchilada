@@ -54,6 +54,9 @@ TARGET_KERNEL_SOURCE := kernel/oneplus/sdm845
 TARGET_KERNEL_CONFIG := enchilada_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
+# Enable real time lockscreen charging current values
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+
 # Platform
 # TARGET_BOARD_PLATFORM := sdm845
 BOARD_USES_QCOM_HARDWARE := true
