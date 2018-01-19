@@ -18,6 +18,9 @@ BOARD_VENDOR := oneplus
 
 VENDOR_PATH := device/oneplus/enchilada
 
+# Compile libhwui in performance mode
+HWUI_COMPILE_FOR_PERF := true
+
 TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
 
 # Architecture
