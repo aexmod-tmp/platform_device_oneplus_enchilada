@@ -111,6 +111,9 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware odm op1 op2 persist
 # Sepolicy
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(VENDOR_PATH)/sepolicy/private
 
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
+
 # Inherit from the proprietary version
 -include vendor/oneplus/sdm845-common/BoardConfigVendor.mk
 -include vendor/oneplus/enchilada/BoardConfigVendor.mk
