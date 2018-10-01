@@ -166,3 +166,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext \
     WfdCommon
+
+#Wifi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/etc/WCNSS_qcom_cfg.ini:/vendor/etc/wifi/WCNSS_qcom_cfg.ini
