@@ -67,6 +67,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
+# Camera
+PRODUCT_PACKAGES_DEBUG += \
+    CameraPackage
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
