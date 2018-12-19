@@ -27,6 +27,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.camera.preview.size=1920x1080 \
     vendor.camera.aux.packagelist="com.oneplus.camera"
 
+# CNE
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.cne.feature=1
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.gralloc.gfx_ubwc_disable=0 \
