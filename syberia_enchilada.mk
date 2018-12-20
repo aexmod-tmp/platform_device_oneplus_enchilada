@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from gemini device
-$(call inherit-product, device/oneplus/encilada/device.mk)
+$(call inherit-product, device/oneplus/enchilada/device.mk)
 
 # Inherit some common Syberia stuff.
 $(call inherit-product, vendor/syberia/common.mk)

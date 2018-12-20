@@ -56,6 +56,7 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # Platform
 # TARGET_BOARD_PLATFORM := sdm845
+BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
 # Properties
@@ -135,5 +136,4 @@ BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
 # Inherit from the proprietary version
--include vendor/oneplus/sdm845-common/BoardConfigVendor.mk
--include vendor/oneplus/enchilada/BoardConfigVendor.mk
+-include vendor/oneplus/oneplus6/BoardConfigVendor.mk
