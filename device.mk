@@ -148,9 +148,7 @@ DEVICE_FRAMEWORK_MANIFEST_FILE += \
 
 # Input
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/idc/fpc1020.idc:system/usr/idc/fpc1020.idc \
     $(LOCAL_PATH)/idc/gf_input.idc:system/usr/idc/gf_input.idc \
-    $(LOCAL_PATH)/keylayout/fpc1020.kl:system/usr/keylayout/fpc1020.kl \
     $(LOCAL_PATH)/keylayout/gf_input.kl:system/usr/keylayout/gf_input.kl
 
 # Lights
