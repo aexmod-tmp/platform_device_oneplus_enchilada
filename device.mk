@@ -18,7 +18,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/oneplus/enchilada/enchilada-vendor.mk)
+$(call inherit-product, vendor/oneplus/oneplus6/oneplus6-vendor.mk)
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
@@ -135,6 +135,11 @@ PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
 
-# Wfd
+# Telephony
+PRODUCT_PACKAGES += \
+    telephony-ext \
+    ims-ext-common
+
 PRODUCT_BOOT_JARS += \
+    telephony-ext \
     WfdCommon
