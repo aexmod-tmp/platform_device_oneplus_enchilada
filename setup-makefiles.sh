@@ -19,7 +19,7 @@
 set -e
 
 # Required!
-DEVICE=enchilada
+DEVICE=oneplus6
 VENDOR=oneplus
 
 INITIAL_COPYRIGHT_YEAR=2018

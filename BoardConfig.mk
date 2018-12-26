@@ -16,7 +16,7 @@
 
 BOARD_VENDOR := oneplus
 
-VENDOR_PATH := device/oneplus/enchilada
+VENDOR_PATH := device/oneplus/oneplus6
 
 TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
 
