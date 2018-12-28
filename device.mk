@@ -132,9 +132,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
-# tri-state-key
+# Device Parts
 PRODUCT_PACKAGES += \
-    tri-state-key_daemon
+    DeviceParts
 
 # Update engine
 PRODUCT_PACKAGES += \
