@@ -11,4 +11,4 @@ typeattribute hal_health_omni coredomain;
 allow hal_health_omni sysfs_batteryinfo:file { getattr open read };
 
 allow hal_health_omni mnt_vendor_file:lnk_file read;
-
+allow hal_health_omni mnt_vendor_file:dir r_dir_perms;
