@@ -99,6 +99,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:system/etc/permissions/privapp-permissions-hotword.xml
 
+# HIDL base
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0
 
 # Custom op6 healthd
 PRODUCT_PACKAGES += android.hardware.health@2.0-service.oneplus6
