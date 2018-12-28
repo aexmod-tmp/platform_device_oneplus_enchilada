@@ -106,3 +106,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # SSR
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.restart_level=ALL_ENABLE
+
+# Vendor props
+# -------------------------------
+#property to enable user to access Google WFD settings
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1
+
+##property to choose between virtual/external wfd display
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.wfd.virtual=0
+
+#property to enable HWC for VDS
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_hwc_vds=1
+
+# Property to enable app trigger
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.at_library=libqti-at.so \
+    persist.vendor.qti.games.gt.prof=1
