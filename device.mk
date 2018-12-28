@@ -221,7 +221,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext \
-    WfdCommon
+    WfdCommon \
+    QPerformance \
+    UxPerformance
 
 #Wifi
 PRODUCT_COPY_FILES += \
