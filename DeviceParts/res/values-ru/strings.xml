@@ -85,4 +85,9 @@
   <string name="tile_panel_mode">Режимы панели</string>
   <string name="tile_hbm_mode">Режимы повышенной яркости</string>
   <string name="wake_entry">Пробуждение</string>
+
+  <string name="toast_ringer">Режим: Звонок</string>
+  <string name="toast_vibrate">Режим: Вибрация</string>
+  <string name="toast_dnd">Режим: Не беспокоить</string>
+
 </resources>
