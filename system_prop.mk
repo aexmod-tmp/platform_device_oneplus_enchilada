@@ -36,7 +36,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.gralloc.gfx_ubwc_disable=0 \
     debug.sf.latch_unsignaled=1 \
     sdm.debug.disable_inline_rotator=1 \
-    sdm.debug.disable_inline_rotator_secure=1
+    sdm.debug.disable_inline_rotator_secure=1 \
+    persist.vendor.color.matrix=2
 
 # IOP
 PRODUCT_PROPERTY_OVERRIDES += \
