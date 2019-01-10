@@ -126,6 +126,7 @@ PRODUCT_PACKAGES_DEBUG += \
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
+    init.syberia.power.rc \
     init.recovery.qcom.rc
 
 # Display
