@@ -42,10 +42,10 @@ TARGET_VENDOR_DEVICE_NAME := OnePlus6
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=OnePlus6 \
     PRODUCT_NAME=OnePlus6 \
-    PRIVATE_BUILD_DESC="OnePlus6-user 9 PKQ1.180716.001 1812250000 release-keys"
+    PRIVATE_BUILD_DESC="OnePlus6-user 8.1.0 OPM1.171019.011 273 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := OnePlus/OnePlus6/OnePlus6:9/PKQ1.180716.001/1812250000:user/release-keys
+BUILD_FINGERPRINT := OnePlus/OnePlus6/OnePlus6:8.1.0/OPM1.171019.011/06140300:user/release-keys
 
 TARGET_VENDOR := OnePlus
 
