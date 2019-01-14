@@ -1,4 +1,4 @@
-# Allow init to mount soundfx libs
+# Allow init to mount wlan kernel module
 allow init vendor_file:file mounton;
 
 # Allow init to mount vendor configs
