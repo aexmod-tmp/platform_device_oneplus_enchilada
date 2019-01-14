@@ -43,13 +43,8 @@ on boot
     chown system system /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/main_display/display_mode
     chown system system /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/main_display/hbm
 
-    mkdir /data/vendor/omni 0770 cameraserver audio
-    write /data/vendor/omni/client_package_name 0
-    chown cameraserver audio /data/vendor/omni/client_package_name
-    chmod 0644 /data/vendor/omni/client_package_name
-
-    setprop vendor.camera.aux.packagelist "com.oneplus.camera"
-    setprop camera.hal1.packagelist "none"
+    write /data/misc/camera/client_package_name "com.oneplus.camera"
+    chmod 0444 /data/misc/camera/client_package_name
 
     mkdir /persist/battery 0770 system system
 on post-fs
@@ -66,8 +61,4 @@ service dashd /sbin/dashd
 
 service factory-hal-1-0 /system/bin/true
     disabled
-
-on property:sys.boot_completed=1
-   write /data/misc/camera/client_package_name "com.oneplus.camera"
-   chmod 0444 /data/misc/camera/client_package_name
 
