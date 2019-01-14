@@ -21,9 +21,9 @@ on property:sys.boot_completed=1
 
 # Set CPU input_boost tunables
     write /sys/module/cpu_input_boost/parameters/input_boost_freq_hp 0
-    write /sys/module/cpu_input_boost/parameters/input_boost_freq_lp 105600
-    write /sys/module/cpu_input_boost/parameters/dynamic_stune_boost 15
-    write /sys/module/cpu_input_boost/parameters/input_boost_duration 500
+    write /sys/module/cpu_input_boost/parameters/input_boost_freq_lp 1056000
+    write /sys/module/cpu_input_boost/parameters/dynamic_stune_boost 0
+    write /sys/module/cpu_input_boost/parameters/input_boost_duration 300
 
 # Disable Boost_No_Override
     write /dev/stune/foreground/schedtune.sched_boost_no_override 0
@@ -63,10 +63,26 @@ on property:sys.boot_completed=1
 # Enable CFQ IO sched
     write /sys/block/dm-0/queue/scheduler "cfq"
     write /sys/block/sda/queue/scheduler "cfq"
+    write /sys/block/sdb/queue/scheduler "cfq"
+    write /sys/block/sdc/queue/scheduler "cfq"
+    write /sys/block/sdd/queue/scheduler "cfq"
     write /sys/block/sde/queue/scheduler "cfq"
+    write /sys/block/sdf/queue/scheduler "cfq"
     write /sys/block/dm-0/queue/iosched/group_idle 0
     write /sys/block/sda/queue/iosched/group_idle 0
+    write /sys/block/sdb/queue/iosched/group_idle 0
+    write /sys/block/sdc/queue/iosched/group_idle 0
+    write /sys/block/sdd/queue/iosched/group_idle 0
     write /sys/block/sde/queue/iosched/group_idle 0
+    write /sys/block/sdf/queue/iosched/group_idle 0
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/read_ahead_kb 128
+    write /sys/block/sdb/queue/read_ahead_kb 128
+    write /sys/block/sdc/queue/read_ahead_kb 128
+    write /sys/block/sdd/queue/read_ahead_kb 128
+    write /sys/block/sde/queue/read_ahead_kb 128
+    write /sys/block/sdf/queue/read_ahead_kb 128
+
 
 # Setup min CPU frequency for little cluster
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
