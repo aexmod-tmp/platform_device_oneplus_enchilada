@@ -685,11 +685,12 @@ public class KeyHandler implements DeviceKeyHandler {
 
     void showToast(String message, int duration) {
 	Context ctx = getPackageContext(mContext, PACKAGE_SYSTEMUI);
-	if (toast != null) toast.cancel();
-	toast = Toast.makeText(ctx, message, duration);
 	Handler handler = new Handler(Looper.getMainLooper());
 	handler.post(new Runnable() {
+		@Override
 		public void run() {
+		    if (toast != null) toast.cancel();
+		    toast = Toast.makeText(ctx, message, duration);
 		    toast.show();
 		    }
 		});
