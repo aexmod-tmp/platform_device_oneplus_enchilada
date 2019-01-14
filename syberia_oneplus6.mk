@@ -20,14 +20,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from gemini device
-$(call inherit-product, device/oneplus/encilada/device.mk)
+$(call inherit-product, device/oneplus/oneplus6/device.mk)
 
 # Inherit some common Syberia stuff.
 $(call inherit-product, vendor/syberia/common.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := syberia_enchilada
-PRODUCT_DEVICE := enchilada
+PRODUCT_NAME := syberia_oneplus6
+PRODUCT_DEVICE := oneplus6
 PRODUCT_BRAND := OnePlus
 PRODUCT_MANUFACTURER := OnePlus
 

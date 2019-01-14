@@ -16,7 +16,7 @@
 
 BOARD_VENDOR := oneplus
 
-VENDOR_PATH := device/oneplus/enchilada
+VENDOR_PATH := device/oneplus/oneplus6
 
 # Compile libhwui in performance mode
 HWUI_COMPILE_FOR_PERF := true
@@ -40,6 +40,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a75
 
 TARGET_USES_64_BIT_BINDER := true
+BOARD_USES_QCOM_HARDWARE := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm845
