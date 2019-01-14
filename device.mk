@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk
 $(call inherit-product, vendor/oneplus/oneplus6/oneplus6-vendor.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
+PRODUCT_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
 
 PRODUCT_PACKAGES += \
@@ -68,7 +68,7 @@ PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
 # Camera
-PRODUCT_PACKAGES_DEBUG += \
+PRODUCT_PACKAGES += \
     CameraPackage
 
 # Common init scripts
