@@ -17,6 +17,12 @@
 
 set -e
 
+# Required!
+DEVICE=oneplus6
+VENDOR=oneplus
+
+INITIAL_COPYRIGHT_YEAR=2018
+
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
@@ -31,27 +37,13 @@ fi
 . "$HELPER"
 
 # Initialize the helper for common
-setup_vendor "$DEVICE_COMMON" "$VENDOR" "$SYBERIA_ROOT" true
+setup_vendor "$DEVICE" "$VENDOR" "$SYBERIA_ROOT"
 
 # Copyright headers and guards
-write_headers "enchilada"
+write_headers "oneplus6"
 
 # The standard common blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt true
 
 # We are done!
 write_footers
-
-if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
-    # Reinitialize the helper for device
-    setup_vendor "$DEVICE" "$VENDOR" "$SYBERIA_ROOT" false
-
-    # Copyright headers and guards
-    write_headers
-
-    # The standard device blobs
-    write_makefiles "$MY_DIR"/../$DEVICE/proprietary-files.txt true
-
-    # We are done!
-    write_footers
-fi
