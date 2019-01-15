@@ -19,7 +19,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from gemini device
+# Inherit from oneplus device
 $(call inherit-product, device/oneplus/oneplus6/device.mk)
 
 # Inherit some common Syberia stuff.
@@ -30,13 +30,14 @@ PRODUCT_NAME := syberia_oneplus6
 PRODUCT_DEVICE := oneplus6
 PRODUCT_BRAND := OnePlus
 PRODUCT_MANUFACTURER := OnePlus
+PRODUCT_MODEL := ONEPLUS A6000
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
 TARGET_VENDOR_PRODUCT_NAME := OnePlus6
 TARGET_VENDOR_DEVICE_NAME := OnePlus6
 
-RODUCT_BUILD_PROP_OVERRIDES += \
+PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=OnePlus6 \
     PRODUCT_NAME=OnePlus6 \
     PRIVATE_BUILD_DESC="OnePlus6-user 8.1.0 OPM1.171019.011 273 release-keys"
