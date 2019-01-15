@@ -108,12 +108,9 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.1 \
+    android.hardware.nfc@1.0 \
     com.android.nfc_extras \
-    com.nxp.nfc.nq \
-    nqnfcee_access.xml \
-    nqnfcse_access.xml \
-    NQNfcNci \
-    SecureElement \
     Tag
 
 # Power
