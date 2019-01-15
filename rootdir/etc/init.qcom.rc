@@ -1,6 +1,7 @@
 import /init.syberia.power.rc
 
 on init
+    mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
     mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
     mount none /system/lib/modules/wlan.ko /vendor/lib/modules-aging/qca_cld3_wlan.ko bind
