@@ -97,7 +97,8 @@ lib/libdpmtcm.so
 #lib64/hw/hwcomposer.sdm845.so|8e6389a1ddae937c8e5b71c5d57026a29212e5c5
 
 # IMS
--app/ims/ims.apk|a0b9a51f337f0234ae10694bd3595949a29a3376
+-app/ims/ims.apk
+-app/imssettings/imssettings.apk
 lib64/libdiag_system.so
 lib64/libimscamera_jni.so
 lib64/libimsmedia_jni.so
