@@ -1,7 +1,10 @@
 on init
+    mount none /dev/null /vendor/bin/hw/vendor.qti.hardware.iop@2.0-service bind
+    mount none /dev/null /vendor/bin/hw/vendor.qti.hardware.perf@1.0-service bind
+    mount none /dev/null /vendor/bin/hw/android.hardware.power@1.0-service bind
+    mount none /system/lib64/libperfmgr.so /vendor/lib64/libperfmgr.so bind
     mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
-    mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
     mount none /system/lib/modules/wlan.ko /vendor/lib/modules-aging/qca_cld3_wlan.ko bind
     mount none /system/lib/modules/wlan.ko /vendor/lib/modules/qca_cld3_wlan.ko bind
 
@@ -71,6 +74,22 @@ on boot
     write /data/misc/camera/client_package_name "com.oneplus.camera"
     chmod 0444 /data/misc/camera/client_package_name
 
+    # Setup permission for powerHAL
+    mkdir /dev/cpuset/kernel 0750 root system
+    write /dev/cpuset/kernel/cpus 0
+    write /dev/cpuset/kernel/mems 0
+    chown system system /dev/cpuset/kernel/tasks
+    chown system system /dev/cpuset/kernel/cpus
+    chmod 0660 /dev/cpuset/kernel/tasks
+    chmod 0660 /dev/cpuset/kernel/cpus
+
+    chown system system /dev/stune/top-app/schedtune.boost
+    chown system system /dev/cpu_dma_latency
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chown system system /sys/class/devfreq/soc:qcom,gpubw/min_freq
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq
+
 on late-fs
     # Enable boot time fs tuning (ro like system is on sda, rw like userdata is on sde)
     write /sys/block/sda/queue/iostats 0
@@ -103,6 +122,10 @@ on charger
     write /sys/class/backlight/panel0-backlight/brightness 150
 
 on property:sys.boot_completed=1
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
+    setprop vendor.powerhal.init 1
     start syberia
 
 service dashd /sbin/dashd

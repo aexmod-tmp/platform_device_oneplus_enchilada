@@ -116,7 +116,11 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom:64
+    android.hardware.power@1.3-service.oneplus6-libperfmgr
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint.json:system/etc/powerhint.json \
+    $(LOCAL_PATH)/prebuilts/lib64/libperfmgr.so:system/lib64/libperfmr.so
 
 # Prebuilts
 PRODUCT_PACKAGES += \
