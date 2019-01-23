@@ -294,9 +294,9 @@ public class KeyHandler implements DeviceKeyHandler {
                     boolean vibrate = state.contains("USB_HOST=0");
                     android.util.Log.v("DeviceParts", "Got ringing = " + ringing + ", silent = " + silent + ", vibrate = " + vibrate);
                     if(ringing && !silent && !vibrate)
-                        doHandleSliderAction(2, 170);
+                        doHandleSliderAction(2, 350);
                     if(silent && !ringing && !vibrate)
-                        doHandleSliderAction(0, 350);
+                        doHandleSliderAction(0, 170);
                     if(vibrate && !silent && !ringing)
                         doHandleSliderAction(1, 260);
                 } catch(Exception e) {

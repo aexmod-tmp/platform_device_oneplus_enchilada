@@ -1,8 +1,7 @@
 on init
     mount none /dev/null /vendor/bin/hw/vendor.qti.hardware.iop@2.0-service bind
     mount none /dev/null /vendor/bin/hw/vendor.qti.hardware.perf@1.0-service bind
-    mount none /dev/null /vendor/bin/hw/android.hardware.power@1.0-service bind
-    mount none /system/lib64/libperfmgr.so /vendor/lib64/libperfmgr.so bind
+    #mount none /dev/null /vendor/bin/hw/android.hardware.power@1.0-service bind
     mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
     mount none /system/lib/modules/wlan.ko /vendor/lib/modules-aging/qca_cld3_wlan.ko bind
@@ -27,6 +26,10 @@ on init
     write /dev/stune/system-background/schedtune.colocate 0
     write /dev/stune/foreground/schedtune.colocate 0
     write /dev/stune/top-app/schedtune.colocate 0
+
+    # ZRAM setup
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
 
 on boot
     #Set on boot cpusets
@@ -83,13 +86,6 @@ on boot
     chmod 0660 /dev/cpuset/kernel/tasks
     chmod 0660 /dev/cpuset/kernel/cpus
 
-    chown system system /dev/stune/top-app/schedtune.boost
-    chown system system /dev/cpu_dma_latency
-    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
-    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
-    chown system system /sys/class/devfreq/soc:qcom,gpubw/min_freq
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq
-
 on late-fs
     # Enable boot time fs tuning (ro like system is on sda, rw like userdata is on sde)
     write /sys/block/sda/queue/iostats 0
@@ -103,9 +99,6 @@ on late-fs
     write /sys/block/dm-0/queue/read_ahead_kb 2048
 
 on post-fs
-    # Disable sched autogroup
-    write /proc/sys/kernel/sched_autogroup_enabled 0
-
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
@@ -122,11 +115,14 @@ on charger
     write /sys/class/backlight/panel0-backlight/brightness 150
 
 on property:sys.boot_completed=1
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
-    setprop vendor.powerhal.init 1
+
+    # Enable ZRAM on boot_complete
+    swapon_all /vendor/etc/fstab.qcom
+    write /proc/sys/vm/swappiness 20
     start syberia
+
+on property:vendor.post_boot.parsed=1
+    setprop vendor.powerhal.init 1
 
 service dashd /sbin/dashd
     class core

@@ -37,21 +37,17 @@ sleep 10;
     echo 825000 > /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
 
 # Input boost and stune configuration
-    echo "0:1056000 1:0 2:0 3:0 4:0 5:0 6:0 7:0" > /sys/module/cpu_boost/parameters/input_boost_freq
-    echo 500 > /sys/module/cpu_boost/parameters/input_boost_ms
-    echo 15 > /sys/module/cpu_boost/parameters/dynamic_stune_boost
+    echo "0:1324800 1:0 2:0 3:0 4:0 5:0 6:0 7:0" > /sys/module/cpu_boost/parameters/input_boost_freq
+    echo 200 > /sys/module/cpu_boost/parameters/input_boost_ms
 
 # Enable PEWQ
     echo Y > /sys/module/workqueue/parameters/power_efficient Y
 
-    # Disable Touchboost
-    echo 0 > /sys/module/msm_performance/parameters/touchboost
+# Disable sched_boost after boot complete
+    echo 0 > /proc/sys/kernel/sched_boost
 
-# Disable CAF task placement for Big Cores 
+# Disable CAF task placement for Big Cores
     echo 0 > /proc/sys/kernel/sched_walt_rotate_big_tasks
-
-# Disable Autogrouping
-    echo 0 > /proc/sys/kernel/sched_autogroup_enabled
 
  # Setup EAS cpusets values for better load balancing
     echo 0-7 > /dev/cpuset/top-app/cpus

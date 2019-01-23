@@ -1,18 +1,22 @@
-type libperfmgr, domain;
+type libperfmgr, coredomain, domain;
 type libperfmgr_exec, exec_type, file_type;
-
+hal_server_domain(libperfmgr, hal_power)
 init_daemon_domain(libperfmgr)
 
 allow libperfmgr proc_touchpanel:dir search;
 allow libperfmgr proc_touchpanel:file w_file_perms;
-
+allow libperfmgr proc:file rw_file_perms;
+get_prop(libperfmgr, hwservicemanager_prop)
 allow libperfmgr hal_power_hwservice:hwservice_manager add;
 allow libperfmgr hidl_base_hwservice:hwservice_manager add;
 allow libperfmgr self:capability dac_override;
+allow libperfmgr sysfs:dir r_dir_perms;
 allow libperfmgr sysfs:file r_file_perms;
-allow libperfmgr sysfs_devfreq:dir search;
-allow libperfmgr sysfs_devfreq:file w_file_perms;
-allow libperfmgr sysfs_devices_system_cpu:file w_file_perms;
-allow libperfmgr sysfs_kgsl:dir search;
-allow libperfmgr sysfs_kgsl:file w_file_perms;
-allow libperfmgr latency_device:chr_file w_file_perms;
+allow libperfmgr sysfs_devfreq:dir r_dir_perms;
+allow libperfmgr sysfs_devfreq:file rw_file_perms;
+allow libperfmgr sysfs_devices_system_cpu:dir r_dir_perms;
+allow libperfmgr sysfs_devices_system_cpu:file rw_file_perms;
+allow libperfmgr sysfs_kgsl:dir r_dir_perms;
+allow libperfmgr sysfs_kgsl:file rw_file_perms;
+allow libperfmgr sysfs_kgsl:lnk_file r_file_perms;
+allow libperfmgr device_latency:chr_file rw_file_perms;

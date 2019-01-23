@@ -119,8 +119,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.3-service.oneplus6-libperfmgr
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.json:system/etc/powerhint.json \
-    $(LOCAL_PATH)/prebuilts/lib64/libperfmgr.so:system/lib64/libperfmr.so
+    $(LOCAL_PATH)/configs/powerhint.json:system/etc/powerhint.json
 
 # Prebuilts
 PRODUCT_PACKAGES += \
@@ -166,6 +165,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-# HIDL
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/manifest.xml:system/etc/manifest.xml

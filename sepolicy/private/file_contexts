@@ -21,6 +21,9 @@
 # Libperfmgr
 /system/bin/hw/android\.hardware\.power@1\.3-service\.oneplus6-libperfmgr u:object_r:libperfmgr_exec:s0
 
+# Relabel vendor powerhal
+/vendor/bin/hw/android\.hardware\.power@1\.0-service u:object_r:hal_power_vendor_exec:s0
+
 # Syberia init shell script
 /system/bin/init.syberia.sh   u:object_r:syberia_exec:s0
 

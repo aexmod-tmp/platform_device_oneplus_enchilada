@@ -4,6 +4,17 @@ allow init vendor_file:file mounton;
 # Allow init to mount vendor configs
 allow init vendor_configs_file:file mounton;
 
+# Allow init to mount iop, perfd and powerhal binaries
+allow init hal_iop_default_exec:file mounton;
+allow init hal_perf_default_exec:file mounton;
+allow init hal_power_vendor_exec:file mounton;
+
 # Allow init to chown/chmod on pseudo files in /sys
 allow init sysfs_type:file { open read setattr };
 allow init cgroup:file create;
+
+# Allow init to write into some sysfs nodes
+allow init sysfs_msm_power:file rw_file_perms;
+allow init sysfs_zram:file rw_file_perms;
+allow init sysfs:dir rw_dir_perms;
+allow init sysfs:file rw_file_perms;
