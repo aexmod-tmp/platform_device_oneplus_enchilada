@@ -187,8 +187,8 @@ PRODUCT_COPY_FILES += \
 
 # IPA
 PRODUCT_PACKAGES += \
-    libnetfilter_conntrack \
-    libnfnetlink
+    ipacm \
+    IPACM_cfg.xml
 
 # Lights
 PRODUCT_PACKAGES += \
