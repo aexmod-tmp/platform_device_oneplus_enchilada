@@ -148,6 +148,7 @@ product/lib64/libsdm-disp-apis.qti.so
 lib/libFileMux.so
 lib/libmmosal.so
 lib/libmmparser_lite.so
+lib64/libmmparser_lite.so
 lib/libOmxMux.so
 lib64/libmmosal.so
 #-vendor/lib/libplatformconfig.so
