@@ -112,9 +112,17 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.class_main.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sensors.sh \
+    init.qcom.usb.sh \
     init.custom.rc \
     init.recovery.qcom.rc \
-    init.qcom.post_boot.sh \
+    init.msm.usb.configfs.rc \
+    init.qcom.rc \
+    init.qcom.usb.rc \
     ueventd.qcom.rc
 
 # Dex
