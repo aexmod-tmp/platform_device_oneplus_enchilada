@@ -152,6 +152,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.class_main.sh \
+    init.qcom.usb.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
@@ -159,6 +160,8 @@ PRODUCT_PACKAGES += \
     init.custom.rc \
     init.recovery.qcom.rc \
     init.msm.usb.configfs.rc \
+    init.oem.rc \
+    init.target.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     ueventd.qcom.rc
